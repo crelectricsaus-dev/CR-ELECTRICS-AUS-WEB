@@ -36,7 +36,7 @@ export default function ServicesPage() {
         title="Electrical services for every project, at every scale"
         description="Licensed electrical solutions across domestic, commercial, industrial and medical sectors — plus security systems and testing & compliance, all delivered by A-Grade qualified electricians."
         breadcrumbs={[{ name: "Home", href: "/" }, { name: "Services", href: "/services" }]}
-        photo="multimeterDiagnosis"
+        photo="architecturalBlueprints"
       />
 
       <section className="bg-white py-24">

@@ -28,6 +28,8 @@ export const placeholderPhotos = {
   controlCabinetPliers: { source: "pexels", id: 33694019 },
   multimeterDiagnosis: { source: "pexels", id: 34054464 },
   domeCameraClose: { source: "pexels", id: 7364948 },
+  pendantLighting: { source: "unsplash", id: "1770816307528-67e404552dcf" },
+  architecturalBlueprints: { source: "pexels", id: 34573691 },
 } as const satisfies Record<string, PhotoSource>;
 
 export type PlaceholderPhotoKey = keyof typeof placeholderPhotos;
