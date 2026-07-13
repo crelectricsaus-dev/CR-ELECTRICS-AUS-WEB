@@ -1,3 +1,5 @@
+import type { PlaceholderPhotoKey } from "./placeholder-photos";
+
 export const site = {
   name: "CR Electrics Australia",
   shortName: "CR Electrics",
@@ -73,7 +75,9 @@ export type ServiceCategory = {
   heroKeywords: string[];
   items: string[];
   icon: string;
-  heroPhoto: "skyline" | "towers" | "bridge" | "electrician" | "switchboard" | "lineman" | "luxuryKitchen" | "officeWorkstations" | "industrialPanel" | "medicalClinic" | "cctv";
+  heroPhoto: PlaceholderPhotoKey;
+  heroPhotoAlignRight?: boolean;
+  heroPhotoPosition?: string;
 };
 
 export const serviceCategories: ServiceCategory[] = [
@@ -138,7 +142,7 @@ export const serviceCategories: ServiceCategory[] = [
       "Cable tray installation",
     ],
     icon: "Factory",
-    heroPhoto: "industrialPanel",
+    heroPhoto: "factoryInterior",
   },
   {
     slug: "medical-electrical",
@@ -157,7 +161,7 @@ export const serviceCategories: ServiceCategory[] = [
       "Critical power systems", "Compliance & certification", "Electrical servicing", "Scheduled maintenance", "Electrical testing",
     ],
     icon: "HeartPulse",
-    heroPhoto: "medicalClinic",
+    heroPhoto: "hospitalCorridor",
   },
   {
     slug: "security-systems",
@@ -177,6 +181,7 @@ export const serviceCategories: ServiceCategory[] = [
     ],
     icon: "ShieldCheck",
     heroPhoto: "cctv",
+    heroPhotoPosition: "object-[center_20%]",
   },
   {
     slug: "testing-compliance",

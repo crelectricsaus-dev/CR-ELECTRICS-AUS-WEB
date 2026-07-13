@@ -26,7 +26,7 @@ export default function ProjectsPage() {
         title="Projects across Melbourne & Victoria"
         description="A showcase of commercial, industrial, medical and residential electrical projects delivered by CR Electrics Australia."
         breadcrumbs={[{ name: "Home", href: "/" }, { name: "Projects", href: "/projects" }]}
-        photo="towers"
+        photo="melbourneSkyline"
       />
       <ProjectsGrid />
       <CTABanner title="Have a project in mind?" description="Tell us about your job and we'll provide an obligation-free quote." />

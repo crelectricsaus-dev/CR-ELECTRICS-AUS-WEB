@@ -32,7 +32,7 @@ export default function IndustriesPage() {
         title="Electrical expertise across every industry"
         description="From homes to hospitals, retail stores to manufacturing plants, our licensed electricians bring sector-specific knowledge to every project across Melbourne and Victoria."
         breadcrumbs={[{ name: "Home", href: "/" }, { name: "Industries", href: "/industries" }]}
-        photo="bridge"
+        photo="warehouseWorkers"
       />
 
       <section className="bg-white py-24">

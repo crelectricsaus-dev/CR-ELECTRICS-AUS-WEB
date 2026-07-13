@@ -12,6 +12,8 @@ export function PageHero({
   breadcrumbs,
   photo,
   photoSrc,
+  photoAlignRight = false,
+  photoPosition,
 }: {
   eyebrow: string;
   title: string;
@@ -21,6 +23,10 @@ export function PageHero({
   photo?: PlaceholderPhotoKey;
   /** Real branded photo path to use once available, e.g. "/images/hero-about.jpg". */
   photoSrc?: string;
+  /** Push the photo's subject toward the right and darken the left so it doesn't sit behind the text. */
+  photoAlignRight?: boolean;
+  /** Explicit object-position override, e.g. "object-[center_70%]". Takes precedence over photoAlignRight's default. */
+  photoPosition?: string;
 }) {
   const onTopic = photo ? isOnTopicPhoto(photo) : false;
 
@@ -32,7 +38,10 @@ export function PageHero({
             src={photoSrc ?? `/images/hero-${photo}-unset.jpg`}
             alt=""
             placeholder={photo}
-            className={onTopic ? "opacity-70" : "opacity-35"}
+            className={clsx(
+              onTopic ? "opacity-70" : "opacity-35",
+              photoPosition ?? (photoAlignRight && "object-[75%_center]")
+            )}
             priority={false}
           />
           <div
@@ -41,6 +50,7 @@ export function PageHero({
               onTopic ? "from-ink via-ink/75 to-ink/30" : "from-ink via-ink/85 to-ink/50"
             )}
           />
+          {photoAlignRight && <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/60 to-ink/10" />}
         </div>
       )}
       <div className="pointer-events-none absolute inset-0 bg-grid opacity-40 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_0%,black,transparent)]" />

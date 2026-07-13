@@ -83,7 +83,7 @@ export default function ContactPage() {
               <div className="mt-6 overflow-hidden rounded-2xl border border-ink/8">
                 <iframe
                   title="CR Electrics Australia location map"
-                  src="https://maps.google.com/maps?q=Mill%20Park%20VIC%203082%20Australia&t=&z=12&ie=UTF8&iwloc=&output=embed"
+                  src="https://maps.google.com/maps?q=Mill%20Park%20VIC%203082%20Australia&t=&z=8&ie=UTF8&iwloc=&output=embed"
                   width="100%"
                   height="260"
                   style={{ border: 0 }}

@@ -37,7 +37,7 @@ export default function AboutPage() {
         title="Melbourne electrical expertise, built on trust"
         description="CR Electrics Australia is a licensed electrical contractor based in Mill Park, proudly delivering domestic, commercial, industrial and medical electrical solutions across Melbourne and Victoria."
         breadcrumbs={[{ name: "Home", href: "/" }, { name: "About", href: "/about" }]}
-        photo="skyline"
+        photo="lineman"
       />
 
       <section className="bg-white py-24">

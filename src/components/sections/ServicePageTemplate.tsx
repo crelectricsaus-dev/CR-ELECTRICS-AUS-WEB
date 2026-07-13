@@ -55,6 +55,8 @@ export function ServicePageTemplate({ service }: { service: ServiceCategory }) {
         ]}
         photo={service.heroPhoto}
         photoSrc={`/images/hero-${service.slug}.jpg`}
+        photoAlignRight={service.heroPhotoAlignRight}
+        photoPosition={service.heroPhotoPosition}
       />
 
       <section className="bg-white py-24">
