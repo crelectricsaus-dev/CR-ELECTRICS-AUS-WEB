@@ -15,7 +15,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Licensed Electrician Melbourne & Victoria",
+  absoluteTitle: "CR ELECTRICS AUSTRALIA | CONTACT US FOR A FREE QUOTE",
   description:
     "CR Electrics Australia is a licensed A-Grade electrician and REC registered electrical contractor based in Mill Park, servicing Melbourne and all of Victoria. Domestic, commercial, industrial, medical & security electrical services.",
   path: "/",

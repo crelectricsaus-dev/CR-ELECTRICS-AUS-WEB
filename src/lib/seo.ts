@@ -7,16 +7,18 @@ import { site } from "./site";
  * <title> tag, not openGraph/twitter, so those are set explicitly here).
  */
 export function buildMetadata(opts: {
-  title: string;
+  title?: string;
+  /** Renders the <title> tag exactly as given, bypassing the " | Site Name" template. */
+  absoluteTitle?: string;
   description: string;
   path: string;
   keywords?: string[];
 }): Metadata {
-  const fullTitle = `${opts.title} | ${site.name}`;
+  const fullTitle = opts.absoluteTitle ?? `${opts.title} | ${site.name}`;
   const url = `${site.url}${opts.path}`;
 
   return {
-    title: opts.title,
+    title: opts.absoluteTitle ? { absolute: opts.absoluteTitle } : opts.title,
     description: opts.description,
     keywords: opts.keywords,
     alternates: { canonical: opts.path },
