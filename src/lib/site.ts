@@ -15,7 +15,7 @@ export const site = {
   fullAddress: "Mill Park, VIC 3082",
   primaryArea: "Melbourne",
   secondaryArea: "Victoria",
-  url: "https://crelectricsaustralia.com.au",
+  url: "https://crelectricsaustralia.com",
   hours: [
     { day: "Monday – Sunday", time: "7:00 AM – 6:00 PM" },
     { day: "After Hours", time: "Available for all urgent electrical enquiries" },
@@ -92,7 +92,7 @@ export const serviceCategories: ServiceCategory[] = [
     metaTitle: "Domestic Electrician Melbourne | Residential Electrical Services | CR Electrics Australia",
     metaDescription:
       "Licensed domestic electrician servicing Melbourne & Victoria. Lighting, switchboards, rewiring, safety inspections & more. Call 0434 353 334.",
-    heroKeywords: ["Electrician Melbourne", "Residential Electrician Melbourne", "Mill Park Electrician"],
+    heroKeywords: ["Electrician Melbourne", "Residential Electrician Melbourne", "Mill Park Electrician", "Switchboard Upgrade Melbourne", "Home Rewiring Melbourne"],
     items: [
       "Lighting installation & upgrades", "Power point installation", "Switchboard upgrades",
       "Smoke alarm installation & compliance", "Ceiling fan installation", "Renovation electrical",
@@ -111,10 +111,10 @@ export const serviceCategories: ServiceCategory[] = [
     tagline: "Electrical partners for Melbourne businesses",
     summary:
       "We deliver reliable commercial electrical services for offices, retail and hospitality fit outs across Melbourne and Victoria, minimising downtime and keeping your business compliant.",
-    metaTitle: "Commercial Electrician Melbourne | Commercial Electrical Contractor | CR Electrics Australia",
+    metaTitle: "Commercial Electrician Melbourne | Office & Retail Fit Outs | CR Electrics Australia",
     metaDescription:
-      "Commercial electrical contractor servicing Melbourne businesses. Office & retail fit outs, maintenance, emergency lighting, data cabling & compliance. Call 0434 353 334.",
-    heroKeywords: ["Commercial Electrician Melbourne", "Commercial Electrical Contractor Melbourne"],
+      "Commercial electrical contractor for Melbourne offices, retail & hospitality. Fit outs, maintenance, emergency lighting & compliance. Call 0434 353 334.",
+    heroKeywords: ["Commercial Electrician Melbourne", "Commercial Electrical Contractor Melbourne", "Office Fit Out Electrician Melbourne", "Facility Electrical Maintenance Melbourne"],
     items: [
       "Office fit outs", "Retail fit outs", "Scheduled electrical maintenance", "Lighting upgrades & LED retrofits",
       "Emergency & exit lighting", "Power installations", "Data & network cabling", "Switchboard upgrades",
@@ -131,10 +131,10 @@ export const serviceCategories: ServiceCategory[] = [
     tagline: "Heavy-duty electrical for Victorian industry",
     summary:
       "CR Electrics Australia supports factories, warehouses and manufacturing plants across Victoria with three-phase installations, industrial switchboards and preventative maintenance programs.",
-    metaTitle: "Industrial Electrician Melbourne | Industrial Electrical Contractor Victoria | CR Electrics Australia",
+    metaTitle: "Industrial Electrician Melbourne | Factories & Warehouses | CR Electrics Australia",
     metaDescription:
-      "Industrial electrical contractor for factories, warehouses & manufacturing across Victoria. Three-phase, switchboards, shutdowns & preventative maintenance. Call 0434 353 334.",
-    heroKeywords: ["Industrial Electrician Melbourne", "Factory Electrician", "Warehouse Electrician"],
+      "Industrial electrical contractor for factories, warehouses & manufacturing across Victoria. Three-phase, switchboards & shutdown work. Call 0434 353 334.",
+    heroKeywords: ["Industrial Electrician Melbourne", "Factory Electrician", "Warehouse Electrician", "Three-Phase Electrician Victoria", "Industrial Switchboard Upgrade Melbourne"],
     items: [
       "Factory electrical installations", "Warehouse electrical & maintenance", "Manufacturing plant electrical",
       "Shutdown work", "Industrial preventative maintenance", "Three-phase installations",
@@ -155,7 +155,7 @@ export const serviceCategories: ServiceCategory[] = [
     metaTitle: "Medical Electrician Melbourne | Healthcare Electrical Contractor | CR Electrics Australia",
     metaDescription:
       "Medical electrician for clinics, dental practices & healthcare facilities across Melbourne. Fit outs, critical power, compliance & maintenance. Call 0434 353 334.",
-    heroKeywords: ["Medical Electrician Melbourne", "Healthcare Electrical Contractor Melbourne"],
+    heroKeywords: ["Medical Electrician Melbourne", "Healthcare Electrical Contractor Melbourne", "Medical Clinic Fit Out Electrician", "Critical Power Systems Melbourne"],
     items: [
       "Medical clinic fit outs", "Medical equipment installation & wiring", "Healthcare facility electrical",
       "Critical power systems", "Compliance & certification", "Electrical servicing", "Scheduled maintenance", "Electrical testing",
@@ -171,10 +171,10 @@ export const serviceCategories: ServiceCategory[] = [
     tagline: "Protecting Melbourne homes & businesses",
     summary:
       "From CCTV to access control, our licensed electricians design and install integrated security systems for residential, commercial and industrial sites across Victoria.",
-    metaTitle: "CCTV & Security System Installation Melbourne | CR Electrics Australia",
+    metaTitle: "Security System Installation Melbourne | CCTV & Access Control | CR Electrics Australia",
     metaDescription:
       "CCTV, access control, video intercoms & alarm system installation across Melbourne. Commercial & industrial security specialists. Call 0434 353 334.",
-    heroKeywords: ["CCTV Installation Melbourne", "Security System Installer Melbourne"],
+    heroKeywords: ["CCTV Installation Melbourne", "Security System Installer Melbourne", "Access Control Melbourne", "Commercial Security Systems Melbourne"],
     items: [
       "CCTV installation", "Intercom systems", "Access control systems", "Video intercoms", "Alarm systems",
       "Commercial security systems", "Industrial security systems", "Network cabling", "System maintenance & upgrades",
@@ -191,10 +191,10 @@ export const serviceCategories: ServiceCategory[] = [
     tagline: "Keep your site safe, legal & insurable",
     summary:
       "CR Electrics Australia provides thorough electrical testing and compliance services, giving Melbourne businesses the documentation and peace of mind required by law and insurers.",
-    metaTitle: "Test and Tag & Electrical Compliance Melbourne | CR Electrics Australia",
+    metaTitle: "Test and Tag Melbourne | Electrical Compliance & Safety Testing | CR Electrics Australia",
     metaDescription:
       "Test & tag, RCD testing, emergency & exit lighting testing, thermal imaging and electrical compliance reports across Melbourne. Call 0434 353 334.",
-    heroKeywords: ["Test and Tagging Melbourne", "Electrical Compliance Melbourne", "Emergency Lighting Testing Melbourne"],
+    heroKeywords: ["Test and Tagging Melbourne", "Electrical Compliance Melbourne", "Emergency Lighting Testing Melbourne", "RCD Testing Melbourne"],
     items: [
       "Test & Tag", "RCD testing", "Emergency lighting testing", "Exit light testing",
       "Electrical compliance reporting", "Electrical safety inspections", "Preventative maintenance programs",

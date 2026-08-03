@@ -9,9 +9,9 @@ import { buildMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Contact Us",
+  title: "Contact Us | Free Quote Melbourne",
   description:
-    "Contact CR Electrics Australia for a free quote. Call 0434 353 334, email crelectricsaus@gmail.com, or send an enquiry. Servicing Melbourne and all of Victoria.",
+    "Contact CR Electrics Australia for a free quote. Call 0434 353 334 or send an enquiry. Servicing Melbourne & all of Victoria.",
   path: "/contact",
   keywords: ["Contact Electrician Melbourne", "Mill Park Electrician", "Electrician Near Me Melbourne"],
 });

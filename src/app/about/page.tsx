@@ -12,11 +12,11 @@ import { buildMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "About Us",
+  title: "About Us | Licensed Melbourne Electrician",
   description:
-    "Learn about CR Electrics Australia — a licensed A-Grade electrician and REC registered electrical contractor based in Mill Park, delivering safe, compliant electrical work across Melbourne and Victoria.",
+    "Licensed A-Grade electrician & REC registered contractor based in Mill Park. Learn about our team, licences and 8+ years servicing Melbourne & Victoria.",
   path: "/about",
-  keywords: ["Electrician Melbourne", "Mill Park Electrician", "Licensed Electrical Contractor Victoria"],
+  keywords: ["Electrician Melbourne", "Mill Park Electrician", "Licensed Electrical Contractor Victoria", "REC Registered Electrical Contractor"],
 });
 
 const values = [

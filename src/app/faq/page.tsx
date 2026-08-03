@@ -7,9 +7,9 @@ import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Frequently Asked Questions",
+  title: "Electrician FAQs Melbourne | Licensing, Pricing & Service Areas",
   description:
-    "Answers to common questions about CR Electrics Australia's licensing, service areas, and domestic, commercial, industrial, testing and security electrical services.",
+    "Answers to common questions about our licensing, service areas & domestic, commercial, industrial and security electrical services.",
   path: "/faq",
   keywords: ["Electrician Melbourne FAQ", "Electrical Compliance Melbourne", "Licensed Electrician Melbourne"],
 });

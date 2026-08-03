@@ -10,10 +10,10 @@ const description =
   "Explore commercial, industrial, medical and residential electrical projects completed by CR Electrics Australia across Melbourne and Victoria.";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Projects",
+  title: "Electrical Projects Melbourne | Case Studies & Completed Work",
   description,
   path: "/projects",
-  keywords: ["Electrician Melbourne Projects", "Commercial Electrical Projects Melbourne", "Industrial Electrical Projects Victoria"],
+  keywords: ["Electrician Melbourne Projects", "Commercial Electrical Projects Melbourne", "Industrial Electrical Projects Victoria", "Electrical Case Studies Melbourne"],
 });
 
 export default function ProjectsPage() {

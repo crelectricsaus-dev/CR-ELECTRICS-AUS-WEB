@@ -16,10 +16,10 @@ const description =
   "CR Electrics Australia delivers licensed electrical services across residential, retail, commercial, warehousing, manufacturing, healthcare, hospitality, education and construction sectors in Melbourne and Victoria.";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Industries We Serve",
+  title: "Industries We Serve | Commercial, Industrial & Medical Electrical",
   description,
   path: "/industries",
-  keywords: ["Commercial Electrical Contractor Victoria", "Industrial Electrical Contractor Victoria", "Electrician Melbourne"],
+  keywords: ["Commercial Electrical Contractor Victoria", "Industrial Electrical Contractor Victoria", "Electrician Melbourne", "Healthcare Electrical Contractor Melbourne"],
 });
 
 export default function IndustriesPage() {

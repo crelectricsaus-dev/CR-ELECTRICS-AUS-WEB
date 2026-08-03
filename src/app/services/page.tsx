@@ -12,7 +12,7 @@ import { serviceCategories } from "@/lib/site";
 import { iconMap } from "@/lib/icons";
 
 const description =
-  "Explore CR Electrics Australia's full range of electrical services: domestic, commercial, industrial, medical, security systems and testing & compliance across Melbourne and Victoria.";
+  "Domestic, commercial, industrial, medical, security & compliance electrical services across Melbourne & Victoria. Free quotes: 0434 353 334.";
 
 export const metadata: Metadata = buildMetadata({
   title: "Electrical Services Melbourne",

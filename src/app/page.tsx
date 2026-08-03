@@ -26,6 +26,7 @@ export const metadata: Metadata = buildMetadata({
     "Mill Park Electrician",
     "Commercial Electrician Melbourne",
     "Industrial Electrician Melbourne",
+    "Emergency Electrician Melbourne",
   ],
 });
 

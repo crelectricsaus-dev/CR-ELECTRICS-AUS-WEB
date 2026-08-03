@@ -6,7 +6,7 @@ import { serviceCategories } from "@/lib/site";
 const service = serviceCategories.find((s) => s.slug === "domestic-electrical")!;
 
 export const metadata: Metadata = buildMetadata({
-  title: service.metaTitle.split(" | ")[0],
+  title: service.metaTitle.split(" | ").slice(0, -1).join(" | "),
   description: service.metaDescription,
   path: `/services/${service.slug}`,
   keywords: service.heroKeywords,
