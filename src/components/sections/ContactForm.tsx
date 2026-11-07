@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Send } from "lucide-react";
 import { site } from "@/lib/site";
 
@@ -18,6 +18,15 @@ type Status = "idle" | "sending" | "sent" | "error";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
+  const feedbackRef = useRef<HTMLDivElement>(null);
+
+  // Bring the result into view so it can't end up hidden behind the sticky
+  // mobile bar or below the fold after the form clears.
+  useEffect(() => {
+    if (status === "sent" || status === "error") {
+      feedbackRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, [status]);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -36,9 +45,15 @@ export function ContactForm() {
     const service = String(formData.get("service") ?? "") || "General Enquiry";
     const name = String(formData.get("name") ?? "");
 
+    // Give up after 15s so a stalled connection ends in a clear message
+    // instead of a button stuck on "Sending…".
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 15000);
+
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
+        signal: controller.signal,
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: site.web3formsAccessKey,
@@ -58,11 +73,24 @@ export function ContactForm() {
     } catch (err) {
       console.error("Contact form submission failed:", err);
       setStatus("error");
+    } finally {
+      clearTimeout(timeout);
     }
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5 rounded-3xl border border-ink/8 bg-white p-8 shadow-sm sm:p-10">
+    // action/method/hidden fields make the form still send if someone clicks
+    // before the page's JavaScript has finished loading (or JS is blocked).
+    // Once loaded, handleSubmit takes over and submits in the background.
+    <form
+      action="https://api.web3forms.com/submit"
+      method="POST"
+      onSubmit={handleSubmit}
+      className="space-y-5 rounded-3xl border border-ink/8 bg-white p-8 shadow-sm sm:p-10"
+    >
+      <input type="hidden" name="access_key" value={site.web3formsAccessKey} />
+      <input type="hidden" name="subject" value="Website enquiry" />
+      <input type="hidden" name="from_name" value={`${site.shortName} Website`} />
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="mb-1.5 block text-sm font-semibold text-ink">
@@ -151,14 +179,14 @@ export function ContactForm() {
         <Send className="size-4" /> {status === "sending" ? "Sending…" : "Send Enquiry"}
       </button>
 
-      <div aria-live="polite">
+      <div ref={feedbackRef} aria-live="polite" className="scroll-mt-32">
         {status === "sent" && (
-          <p className="text-center text-sm font-medium text-electric">
+          <p role="status" className="rounded-2xl bg-electric/10 px-4 py-3 text-center text-sm font-semibold text-electric-dark">
             Thanks — your enquiry has been sent. We&rsquo;ll be in touch shortly.
           </p>
         )}
         {status === "error" && (
-          <p className="text-center text-sm font-medium text-red-600">
+          <p role="alert" className="rounded-2xl bg-red-50 px-4 py-3 text-center text-sm font-semibold text-red-700">
             Sorry, your enquiry didn&rsquo;t go through. Please call{" "}
             <a href={site.phoneHref} className="underline">
               {site.phone}
