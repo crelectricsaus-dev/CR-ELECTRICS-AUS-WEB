@@ -16,6 +16,9 @@ export const site = {
   primaryArea: "Melbourne",
   secondaryArea: "Victoria",
   url: "https://crelectricsaustralia.com",
+  // Web3Forms access keys are public by design: they only let the contact form
+  // deliver enquiries to the inbox the key was registered with.
+  web3formsAccessKey: "3e1117d5-c808-483c-99cd-99e5d11bc733",
   hours: [
     { day: "Monday – Sunday", time: "7:00 AM – 6:00 PM" },
     { day: "After Hours", time: "Available for all urgent electrical enquiries" },

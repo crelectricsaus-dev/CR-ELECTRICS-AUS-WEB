@@ -14,25 +14,51 @@ const serviceOptions = [
   "Other",
 ];
 
+type Status = "idle" | "sending" | "sent" | "error";
+
 export function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    setStatus("sending");
+
+    // Honeypot: people never see or tick this box, bots usually do.
+    // Pretend success so bots don't learn to adapt.
+    if (formData.get("botcheck")) {
+      form.reset();
+      setStatus("sent");
+      return;
+    }
+
+    const service = String(formData.get("service") ?? "") || "General Enquiry";
     const name = String(formData.get("name") ?? "");
-    const phone = String(formData.get("phone") ?? "");
-    const email = String(formData.get("email") ?? "");
-    const service = String(formData.get("service") ?? "");
-    const message = String(formData.get("message") ?? "");
 
-    const subject = encodeURIComponent(`Quote Request — ${service || "General Enquiry"}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\nService: ${service}\n\nMessage:\n${message}`
-    );
-
-    window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
-    setSubmitted(true);
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: site.web3formsAccessKey,
+          subject: `Website enquiry — ${service} — ${name}`,
+          from_name: `${site.shortName} Website`,
+          name,
+          email: formData.get("email"),
+          phone: formData.get("phone"),
+          service,
+          message: formData.get("message"),
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) throw new Error(data.message ?? `Request failed: ${res.status}`);
+      form.reset();
+      setStatus("sent");
+    } catch (err) {
+      console.error("Contact form submission failed:", err);
+      setStatus("error");
+    }
   }
 
   return (
@@ -111,18 +137,40 @@ export function ContactForm() {
         />
       </div>
 
+      {/* Spam trap — hidden from people, ticked by bots. */}
+      <div className="sr-only" aria-hidden="true">
+        <label htmlFor="botcheck">Leave this box unticked</label>
+        <input id="botcheck" name="botcheck" type="checkbox" tabIndex={-1} autoComplete="off" />
+      </div>
+
       <button
         type="submit"
-        className="flex w-full items-center justify-center gap-2 rounded-full bg-electric px-6 py-4 text-sm font-bold text-white transition-all hover:bg-electric-dark hover:shadow-[0_8px_30px_-6px_rgba(36,87,255,0.6)]"
+        disabled={status === "sending"}
+        className="flex w-full items-center justify-center gap-2 rounded-full bg-electric px-6 py-4 text-sm font-bold text-white transition-all hover:bg-electric-dark hover:shadow-[0_8px_30px_-6px_rgba(36,87,255,0.6)] disabled:cursor-not-allowed disabled:opacity-70"
       >
-        <Send className="size-4" /> Send Enquiry
+        <Send className="size-4" /> {status === "sending" ? "Sending…" : "Send Enquiry"}
       </button>
 
-      {submitted && (
-        <p className="text-center text-sm font-medium text-electric">
-          Your email app should now be open with your enquiry pre-filled — just hit send. We&rsquo;ll reply promptly.
-        </p>
-      )}
+      <div aria-live="polite">
+        {status === "sent" && (
+          <p className="text-center text-sm font-medium text-electric">
+            Thanks — your enquiry has been sent. We&rsquo;ll be in touch shortly.
+          </p>
+        )}
+        {status === "error" && (
+          <p className="text-center text-sm font-medium text-red-600">
+            Sorry, your enquiry didn&rsquo;t go through. Please call{" "}
+            <a href={site.phoneHref} className="underline">
+              {site.phone}
+            </a>{" "}
+            or email{" "}
+            <a href={site.emailHref} className="underline">
+              {site.email}
+            </a>
+            .
+          </p>
+        )}
+      </div>
     </form>
   );
 }
