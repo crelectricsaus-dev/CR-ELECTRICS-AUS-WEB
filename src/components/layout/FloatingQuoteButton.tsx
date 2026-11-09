@@ -2,10 +2,12 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { PhoneCall } from "lucide-react";
 
 export function FloatingQuoteButton() {
   const [visible, setVisible] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 480);
@@ -13,6 +15,10 @@ export function FloatingQuoteButton() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // On the contact page this just links back to the same page, and it floats
+  // over the form's Send button — so it's hidden there.
+  if (pathname?.startsWith("/contact")) return null;
 
   return (
     <Link
