@@ -1,10 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Archivo } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { StickyMobileBar } from "@/components/layout/StickyMobileBar";
-import { FloatingQuoteButton } from "@/components/layout/FloatingQuoteButton";
+import { SiteChrome } from "@/components/layout/SiteChrome";
 import { JsonLd } from "@/components/JsonLd";
 import { localBusinessSchema, organizationSchema, websiteSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
@@ -87,13 +84,7 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <Header />
-        <main id="main-content" className="flex-1 pb-16 lg:pb-0">
-          {children}
-        </main>
-        <Footer />
-        <StickyMobileBar />
-        <FloatingQuoteButton />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );
